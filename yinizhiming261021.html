@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050914"><title>以你之名的宇宙 · A universe of you</title>
+<style>
+:root{color-scheme:dark;--gold:#e6c795;--muted:#919bad}*{box-sizing:border-box}body{margin:0;background:#050914;color:#f4efe8;font-family:"Microsoft YaHei","PingFang SC",sans-serif;overflow:hidden}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:5px}button:disabled{opacity:.45;cursor:default}[hidden]{display:none!important}#sky{position:fixed;inset:0;width:100%;height:100%;touch-action:manipulation}.shell{position:relative;height:100svh;min-height:540px;pointer-events:none}.shell button,.shell input{pointer-events:auto}.brand{position:absolute;top:30px;left:36px;font:10px Georgia,serif;letter-spacing:4px;color:#bcc3cc}.brand span{color:var(--gold);font-size:18px;margin-right:12px}.edition{position:absolute;right:36px;top:36px;color:#66748b;font-size:9px;letter-spacing:3px}.intro{position:absolute;top:13%;left:5%;right:5%;text-align:center;transition:opacity .6s}.eyebrow{font:10px Georgia,serif;letter-spacing:5px;color:var(--gold);margin-bottom:19px}h1{font-family:"Songti SC",SimSun,serif;font-weight:400;font-size:clamp(30px,5vw,48px);letter-spacing:7px;line-height:1.5;margin:0}h1 small{display:block;font-family:"Microsoft YaHei",sans-serif;font-size:12px;font-weight:400;color:var(--muted);letter-spacing:3px;margin-top:16px}.composer{position:absolute;left:50%;bottom:13%;transform:translateX(-50%);width:min(360px,84vw);text-align:center}.field{display:flex;align-items:center;gap:12px;border-bottom:1px solid #687080;padding:0 4px 12px;margin-bottom:22px}.field label{font-size:11px;color:#a6afbc;white-space:nowrap;letter-spacing:2px}input{width:100%;border:0;background:transparent;outline:none!important;color:white;font-family:SimSun,serif;font-size:21px;text-align:center;letter-spacing:4px}input::placeholder{color:#5f6a7c;font-size:15px}.primary{border:1px solid #bca984;background:linear-gradient(110deg,#e8d7b7,#bca37c);color:#18191d;padding:14px 28px;border-radius:3px;letter-spacing:3px;font-size:12px;box-shadow:0 0 40px #dcc59a0b}.primary:hover{filter:brightness(1.12)}.composer .primary{width:100%}.fine{font-size:10px;color:#69778e;letter-spacing:1px;margin-top:18px}#error{color:#f2bfaa;font-size:12px;min-height:18px;margin:8px 0 0}footer{position:absolute;bottom:26px;left:0;right:0;text-align:center;font:9px Georgia,serif;letter-spacing:4px;color:#5d6a80}.stage-label{position:absolute;top:16%;left:0;right:0;text-align:center}.stage-label p{font-size:12px;color:#bbc3cf;letter-spacing:4px;margin-top:18px}.stage-label .index{font:10px Georgia,serif;color:var(--gold);letter-spacing:5px}#unfold{position:absolute;left:50%;top:60%;transform:translateX(-50%);background:none;border:0;color:#e6d2b1;letter-spacing:3px;font-size:12px;padding:20px;width:90%}#unfold:before{content:'✧';display:block;font-size:26px;margin-bottom:14px;animation:breathe 2s infinite}#dedication{position:absolute;left:8%;right:8%;top:63%;text-align:center}#recipient{font:32px SimSun,serif;letter-spacing:8px;margin:12px 0 18px}#dedication p{font-size:12px;line-height:2;color:#abb4c3;letter-spacing:2px}#actions{position:absolute;bottom:12%;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:24px}.ghost{background:none;border:0;color:#9ca8bb;font-size:11px;letter-spacing:2px;padding:12px 0}.record{position:absolute;right:30px;bottom:25px;color:#8491a6;font-size:10px}.hidden-ui .shell{opacity:0;pointer-events:none}.hidden-ui .shell button,.hidden-ui .shell input{pointer-events:none}.hidden-ui{cursor:none}dialog{border:1px solid #4e5665;border-radius:12px;background:#101725;color:white;max-width:430px;width:90vw;padding:18px;text-align:center}dialog::backdrop{background:#000b}dialog img{display:block;max-height:65vh;max-width:100%;margin:auto}dialog p{font-size:12px;color:#abb6c9}dialog a{color:#e6c795;font-size:13px;margin-right:25px}#pauseMark{position:fixed;top:12px;left:50%;transform:translateX(-50%);color:var(--gold);font-size:11px}#director{position:fixed;left:20px;bottom:55px;display:flex;gap:8px}#director button{background:#0d1528bb;color:#a5b2c5;border:1px solid #39455a;border-radius:3px;padding:7px;font-size:10px}.demo-badge{position:fixed;left:20px;bottom:20px;color:#8d9ab0;font-size:10px}.hidden-ui #director,.hidden-ui .demo-badge{display:none}@keyframes breathe{50%{opacity:.4;transform:scale(.9)}}@media(max-width:600px){.brand{left:23px;top:24px;letter-spacing:3px}.edition{right:20px;top:30px;font-size:8px;letter-spacing:1px}h1{font-size:30px;letter-spacing:4px}.intro{top:14%}.record{display:none}footer{font-size:8px;letter-spacing:2px}.composer{bottom:13%}}@media(max-height:650px){.intro{top:12%}h1{font-size:26px}.intro h1 small{margin-top:8px}.eyebrow{margin-bottom:8px}.composer{bottom:9%}.fine{margin-top:9px}#actions{bottom:8%}#recipient{font-size:25px;margin:8px}}
+:root{--gold:#f0b5dc;--muted:#b2a0c2}.primary{background:linear-gradient(110deg,#ecc4e6,#bd9ada);border-color:#e5b7e2;color:#251b34;box-shadow:0 0 35px #e29cce19;border-radius:8px}.brand{color:#ccb5d6}.edition{color:#9c88ac}.field{border-color:#7e678c}.fine{color:#a18cb4}#unfold{color:#efd0ea}#recipient{color:#fff0fb}#dedication p{color:#cab7d6}.stage-label p{color:#d2bfdc}.ghost{color:#b9a2c9}.intro h1{letter-spacing:4px}.share-hint{position:absolute;left:0;right:0;bottom:7.5%;text-align:center;color:#b698c9;font-size:11px;letter-spacing:2px;pointer-events:none}.hidden-ui .share-hint{display:none}
+</style></head>
+<body>
+<canvas id="sky" aria-label="由名字生成的互动星空"></canvas>
+<main class="shell">
+ <div class="brand"><span>✧</span>UNIVERSE OF YOU</div><div class="edition">一份写给你的星光</div>
+ <header class="intro" id="intro"><div class="eyebrow">A LITTLE UNIVERSE, JUST FOR YOU</div><h1>把整个宇宙，送给你<small>你的名字，是我心动的形状。</small></h1></header>
+ <form class="composer" id="form" novalidate><div class="field"><label for="name">TA 的名字</label><input id="name" autocomplete="off" placeholder="写下你想到的那个人" aria-describedby="error" spellcheck="false"></div><button id="ignite" class="primary" type="submit">为 TA 点亮星空 <span aria-hidden="true">♡</span></button><p id="error" role="alert"></p><div class="fine">1—8 个中英文字符 · 名字只留在你的设备里</div></form>
+ <div class="stage-label" id="stageLabel" hidden><div class="index" id="chapter">01 / 星光有了名字</div><p id="stageCopy">散落的星光，开始有了方向。</p></div>
+ <button id="unfold" hidden>轻轻点一下，看看我的心意</button>
+ <section id="dedication" hidden><div class="eyebrow">ALL THESE STARS, ONLY FOR YOU</div><h2 id="recipient"></h2><p>星星有很多，但我的宇宙里，只有你。</p></section>
+ <div id="actions" hidden><button id="save" class="primary">保存星空，送给 TA ♡</button><button id="replay" class="ghost">再写一个名字</button></div>
+ <div id="shareHint" class="share-hint" hidden>分享给那个让你心动的人</div>
+ <footer>ONE NAME. INFINITE STARS.</footer><div class="record">R 重播 · Space 暂停 · H 隐藏界面</div>
+</main>
+<div id="pauseMark" hidden>已暂停 · 空格继续</div>
+<nav id="director" aria-label="录制节点" hidden><button data-cue="name">名字</button><button data-cue="heart">心形</button><button data-cue="galaxy">星系</button><button data-cue="card">卡片</button></nav><div class="demo-badge" id="demoBadge" hidden>自动演示 · D 隐藏节点 · H 纯净画面</div>
+<dialog id="preview"><img id="cardPreview" alt="专属星空卡，包含名字和赠言"><p>已尝试下载。如未下载，可保存下方图片。</p><a id="downloadAgain" download="专属星空.png">下载原图</a><button id="closePreview" class="ghost">返回星空</button></dialog>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id), canvas=$('sky'),ctx=canvas.getContext('2d',{alpha:false});
+const TAU=Math.PI*2, N=3200, demo=new URLSearchParams(location.search).get('demo')==='1';
+let W=innerWidth,H=innerHeight,dpr=Math.min(devicePixelRatio||1,1.7),state='intro',elapsed=0,clock=0,last=0,paused=false,person='星遥',seed=1,hue=210,angle=0,points=[],stars=[],textPoints=[],readyAt=0,frameCount=0,quality=1;
+const clamp=x=>Math.max(0,Math.min(1,x)), ease=x=>{x=clamp(x);return x*x*(3-2*x)},mix=(a,b,t)=>a+(b-a)*t;
+function hash(s){let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function randomGenerator(s){return()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const sprites=['255,126,212','174,124,255','255,191,226'].map(rgb=>{const s=document.createElement('canvas');s.width=s.height=64;const sc=s.getContext('2d'),g=sc.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'#fff9ff');g.addColorStop(.08,'#fff3ff');g.addColorStop(.18,`rgba(${rgb},.95)`);g.addColorStop(.35,`rgba(${rgb},.35)`);g.addColorStop(.65,`rgba(${rgb},.07)`);g.addColorStop(1,`rgba(${rgb},0)`);sc.fillStyle=g;sc.fillRect(0,0,64,64);return s});
+function build(name){person=name;seed=hash(name);const rand=randomGenerator(seed);hue=275+rand()*35;angle=-.4+rand()*.22;
+ const tc=document.createElement('canvas');tc.width=1200;tc.height=400;const t=tc.getContext('2d');t.font='bold 300px "Microsoft YaHei",sans-serif';const tw=t.measureText(name).width;t.font=`bold ${Math.min(300,950/tw*300)}px "Microsoft YaHei",sans-serif`;t.textAlign='center';t.textBaseline='middle';t.fillStyle='white';t.fillText(name,600,200);const pixels=t.getImageData(0,0,1200,400).data;textPoints=[];for(let y=0;y<400;y+=3)for(let x=0;x<1200;x+=3)if(pixels[(y*1200+x)*4+3]>150)textPoints.push([(x-600)/1200,(y-200)/1200]);
+ points=[];for(let i=0;i<N;i++){const r=Math.pow(rand(),.72),arm=i%3,a=r*7.8+arm*TAU/3+(rand()-.5)*(.5+.7*r);const tp=textPoints[Math.floor(rand()*textPoints.length)]||[0,0];let hx,hy;do{hx=rand()*2.3-1.15;hy=rand()*2.6-1.2}while(Math.pow(hx*hx+hy*hy-1,3)-hx*hx*hy*hy*hy>0);points.push({r,a,z:(rand()-.5)*.12*(1-r),tx:tp[0],ty:tp[1],hx:hx*.35,hy:-hy*.35,sx:(rand()-.5)*2.5,sy:(rand()-.5)*2.5,size:.45+Math.pow(rand(),3)*2.3,phase:rand()*TAU,tint:rand()>.68?1:(rand()>.7?2:0)});}
+ stars=Array.from({length:200},()=>({x:rand(),y:rand(),size:rand()*1.2+.3,phase:rand()*TAU}));
+}
+function resize(){W=innerWidth;H=innerHeight;canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);canvas.style.width=W+'px';canvas.style.height=H+'px'}
+function ui(){const intro=state==='intro',name=state==='name',galaxy=state==='galaxy';$('intro').hidden=!intro;$('form').hidden=!intro;$('stageLabel').hidden=intro||galaxy;$('unfold').hidden=!name;$('dedication').hidden=!galaxy;$('actions').hidden=!galaxy;$('shareHint').hidden=!galaxy;$('recipient').textContent=person;canvas.style.cursor=name?'pointer':'default';if(state==='forming'||name){$('chapter').textContent='01 / 念念不忘的名字';$('stageCopy').textContent=name?'想到你的时候，星星也变得温柔。':'有一个名字，藏着我所有的偏爱。'}else if(state==='unfold'){$('chapter').textContent='02 / 原来心动有形状';$('stageCopy').textContent='你一出现，我的世界就亮了。'}}
+function start(value){const name=value.trim().normalize('NFC');if(!/^[\p{Script=Han}A-Za-z]{1,8}$/u.test(name)){$('error').textContent='请输入 1—8 个汉字或英文字母。';$('name').setAttribute('aria-invalid','true');return false}$('error').textContent='';$('name').removeAttribute('aria-invalid');build(name);state='forming';elapsed=0;paused=false;$('pauseMark').hidden=true;ui();return true}
+function unfold(){if(state!=='name')return;state='unfold';elapsed=0;ui()}
+function reset(){state='intro';elapsed=0;paused=false;$('pauseMark').hidden=true;document.body.classList.remove('hidden-ui');ui();$('name').focus()}
+function draw(c,w,h,mode,e,time,card=false){
+ c.globalAlpha=1;c.globalCompositeOperation='source-over';c.fillStyle='#0b071c';c.fillRect(0,0,w,h);
+ const base=Math.min(w*.98,h*(mode==='intro'?.58:.78)),cx=w*.5,cy=h*(card?.44:(mode==='intro'?.46:(mode==='unfold'?.47-.04*ease((e-4.1)/5.2):.43)));
+ const bg=c.createRadialGradient(cx,cy,0,cx,cy,base*.8);bg.addColorStop(0,`hsla(${hue},56%,27%,.8)`);bg.addColorStop(.45,'#42205e60');bg.addColorStop(1,'#0b071c00');c.fillStyle=bg;c.fillRect(0,0,w,h);
+ for(const s of stars){const a=.25+.5*(.5+.5*Math.sin(time*.45+s.phase));c.globalAlpha=a;c.fillStyle='#bfd3ef';c.fillRect(s.x*w,s.y*h,s.size*(card?1.9:1),s.size*(card?1.9:1))}c.globalAlpha=1;
+ let textMix=0,heartMix=0,galaxyMix=0;
+ if(mode==='intro')heartMix=1;
+ else if(mode==='galaxy')galaxyMix=1;
+ else if(mode==='forming')textMix=ease(e/3.1);
+ else if(mode==='name')textMix=1;
+ else if(mode==='unfold'){heartMix=ease(e/3);galaxyMix=ease((e-4.1)/5.2);textMix=1-heartMix;}
+ const galScale=mode==='intro'?.92:1;const rot=angle+time*.018;
+ // Faint galactic dust appears only as the stars reach their orbital positions.
+ if(galaxyMix>.02){c.save();c.translate(cx,cy);c.rotate(-.3);c.scale(1,.43);c.globalAlpha=galaxyMix*.7;const dust=c.createRadialGradient(0,0,0,0,0,base*.48);dust.addColorStop(0,'#ffbce780');dust.addColorStop(.12,'#e3a4f044');dust.addColorStop(.46,`hsla(${hue},70%,60%,.22)`);dust.addColorStop(1,'#b17bff00');c.fillStyle=dust;c.fillRect(-base,-base,base*2,base*2);c.restore()}
+ c.globalCompositeOperation='lighter';
+ const stride=card?1:quality;
+ for(let i=0;i<points.length;i+=stride){const p=points[i];const ga=p.a+rot;const gx=Math.cos(ga)*p.r*.44,gy=Math.sin(ga)*p.r*.20+p.z;
+ const rx=gx*Math.cos(-.3)-gy*Math.sin(-.3),ry=gx*Math.sin(-.3)+gy*Math.cos(-.3);
+ let x,y;
+ if(mode==='intro'){const beat=1+Math.sin(time*1.8)*.025;x=p.hx*beat;y=p.hy*beat}
+ else if(mode==='galaxy'){x=rx*galScale;y=ry*galScale}
+ else if(mode==='forming'){x=mix(p.sx,p.tx,textMix);y=mix(p.sy,p.ty,textMix)}
+ else if(mode==='name'){x=p.tx;y=p.ty}
+ else {const flow=Math.sin(p.phase+e*2)*.065*Math.sin(Math.PI*heartMix);x=mix(p.tx,p.hx,heartMix)+flow;y=mix(p.ty,p.hy,heartMix)+Math.cos(p.phase+e)*.035*Math.sin(Math.PI*heartMix);x=mix(x,rx,galaxyMix);y=mix(y,ry,galaxyMix)}
+ const px=cx+x*base,py=cy+y*base;const shimmer=.68+.32*Math.sin(time*1.3+p.phase)**2;const size=(card?2.2:1)*p.size*((mode==='name'||mode==='forming')?.48:1)*(1-.32*galaxyMix);c.globalAlpha=(.78-.25*galaxyMix)*shimmer;
+ c.drawImage(sprites[p.tint],px-size*5,py-size*5,size*10,size*10);
+ }
+ c.globalAlpha=1;
+ if(galaxyMix>.01){c.globalAlpha=galaxyMix;const glow=c.createRadialGradient(cx,cy,0,cx,cy,base*.12);glow.addColorStop(0,'#fff0ffbd');glow.addColorStop(.12,'#ffb6ec82');glow.addColorStop(.45,'#e3a5ff25');glow.addColorStop(1,'#c588ff00');c.fillStyle=glow;c.fillRect(cx-base*.12,cy-base*.12,base*.24,base*.24)}
+ if(mode==='unfold'&&e<2){c.globalAlpha=(1-e/2)*.55;c.strokeStyle='#e5d5b4';c.lineWidth=1;c.beginPath();c.arc(cx,cy,base*(.03+e*.42),0,TAU);c.stroke()}
+ c.globalAlpha=1;c.globalCompositeOperation='source-over';
+ if(card){c.textAlign='center';c.fillStyle='#ecc1e4';c.font='22px Georgia';c.fillText('U N I V E R S E   O F   Y O U',w/2,h*.13);c.fillStyle='#ac8dbe';c.font='23px "Microsoft YaHei"';c.fillText('以 你 之 名 的 宇 宙',w/2,h*.18);c.fillStyle='#f5efe5';c.font=`${person.length>5?64:84}px "Microsoft YaHei"`;c.fillText(person,w/2,h*.68);c.fillStyle='#d3bfdc';c.font='26px "Microsoft YaHei"';c.fillText('星星有很多，但我的宇宙里，只有你。',w/2,h*.74);c.strokeStyle='#cc8ac54d';c.beginPath();c.moveTo(w*.43,h*.81);c.lineTo(w*.57,h*.81);c.stroke();c.fillStyle='#79859a';c.font='18px Georgia';c.fillText('ONE NAME. INFINITE STARS.',w/2,h*.86);c.font='16px Georgia';c.fillText('STARMAP / '+seed.toString(16).toUpperCase().padStart(8,'0'),w/2,h*.9)}
+}
+function frame(ts){const raw=last?(ts-last)/1000:0;last=ts;if(!paused){const dt=Math.min(raw,.08);elapsed+=dt;clock+=dt;if(state==='forming'&&elapsed>=3.4){state='name';elapsed=0;readyAt=clock;ui()}if(demo&&state==='name'&&clock-readyAt>2)unfold();if(state==='unfold'&&elapsed>=9.5){state='galaxy';elapsed=0;ui()}if(demo&&state==='galaxy'&&elapsed>8){start(person)}}
+ if(++frameCount===180&&clock>5.5)quality=2;
+ ctx.setTransform(dpr,0,0,dpr,0,0);draw(ctx,W,H,state,elapsed,clock);requestAnimationFrame(frame)}
+let cardUrl='';function saveCard(){const out=document.createElement('canvas');out.width=1080;out.height=1920;draw(out.getContext('2d'),1080,1920,'galaxy',10,12,true);out.toBlob(blob=>{if(!blob)return;if(cardUrl)URL.revokeObjectURL(cardUrl);cardUrl=URL.createObjectURL(blob);$('cardPreview').src=cardUrl;$('downloadAgain').href=cardUrl;$('downloadAgain').download=person+'的宇宙.png';$('preview').showModal();$('downloadAgain').click()},'image/png')}
+$('form').addEventListener('submit',e=>{e.preventDefault();start($('name').value)});$('unfold').onclick=unfold;canvas.onclick=unfold;$('save').onclick=saveCard;$('replay').onclick=reset;$('closePreview').onclick=()=>$('preview').close();window.addEventListener('resize',resize);
+document.addEventListener('keydown',e=>{if(e.target.matches('input,textarea')||$('preview').open)return;if(e.code==='Space'){e.preventDefault();paused=!paused;$('pauseMark').hidden=!paused}else if(e.key.toLowerCase()==='h')document.body.classList.toggle('hidden-ui');else if(e.key.toLowerCase()==='r')start(person);else if(e.key.toLowerCase()==='d'&&demo)$('director').hidden=!$('director').hidden});
+$('director').onclick=e=>{const cue=e.target.dataset.cue;if(!cue)return;paused=true;$('pauseMark').hidden=false;if(cue==='name'){state='name';elapsed=0}else if(cue==='heart'){state='unfold';elapsed=3.5}else{state='galaxy';elapsed=10}ui();if(cue==='card')saveCard()};
+build(person);resize();ui();if(demo){$('demoBadge').hidden=false;$('director').hidden=false;start(person)}requestAnimationFrame(frame);
+})();
+</script></body></html>
