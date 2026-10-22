@@ -14,7 +14,7 @@
     home.id='site-home';
     home.href=HOME_URL;
     home.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg><span>'+SITE_NAME+'</span>';
-    home.style.cssText='position:fixed;top:16px;left:16px;z-index:99998;display:flex;align-items:center;gap:8px;background:rgba(10,20,30,.85);color:#eef7f5;border:1px solid rgba(86,233,223,.3);border-radius:999px;padding:8px 16px;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.05em;backdrop-filter:blur(8px);transition:all .2s;font-family:"Microsoft YaHei",sans-serif';
+    home.style.cssText='position:fixed;top:14px;left:14px;z-index:99998;display:flex;align-items:center;gap:6px;background:rgba(8,16,24,.82);color:#eef7f5;border:1px solid rgba(86,233,223,.35);border-radius:999px;padding:6px 12px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.03em;backdrop-filter:blur(8px);transition:all .2s;font-family:"Microsoft YaHei",sans-serif;box-shadow:0 2px 12px rgba(0,0,0,.4)';
     home.querySelector('svg').style.cssText='width:16px;height:16px;color:#56e9df';
     home.onmouseenter=()=>{home.style.background='rgba(86,233,223,.15)';home.style.borderColor='#56e9df'};
     home.onmouseleave=()=>{home.style.background='rgba(10,20,30,.85)';home.style.borderColor='rgba(86,233,223,.3)'};
