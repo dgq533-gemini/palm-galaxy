@@ -1,4 +1,10 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title data-i18n="pageTitle">掌中星河 · AI 编程作品</title>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="pageTitle">掌中星河 · Alepha AI 编程作品</title>
+<meta name="description" content="掌中星河 — Alepha AI 编程作品。26,000 颗星握在手里，握拳聚拢、张手爆散、捏合成环，WebGL 粒子星河支持手势控制。">
+<meta name="keywords" content="掌中星河, Alepha, WebGL, 粒子系统, 手势识别, AI编程, 代码艺术">
+<meta property="og:title" content="掌中星河 · Alepha AI 编程作品">
+<meta property="og:description" content="26,000 颗星握在手里 — WebGL 粒子星河，支持手势控制">
+<meta property="og:site_name" content="Alepha">
 <script src="i18n.js"></script>
 <style>*{box-sizing:border-box}body{margin:0;background:#060b12;color:#eef7f5;font:14px 'Microsoft YaHei',sans-serif;display:grid;place-items:center;min-height:100vh}canvas#film{height:100vh;max-width:100vw;object-fit:contain}#controls{position:fixed;bottom:16px;left:16px;display:flex;gap:8px;flex-wrap:wrap;max-width:95vw}button{background:#12212b;color:#eef7f5;border:1px solid #56e9df88;padding:10px 14px;border-radius:6px;cursor:pointer}#notice{position:fixed;top:12px;left:12px;background:#060b12df;padding:10px;max-width:350px}video{display:none}</style>
 <canvas id="film" width="1080" height="1920"></canvas><video id="camera" muted playsinline></video><div id="notice" data-i18n="noticeAuto">自动演示 · 手部骨架为示意；摄像头需点击授权。本地识别，不上传影像。</div><div id="controls"><button id="enable" data-i18n="btnEnable">开启真实手势</button><button data-mode="0" data-i18n="btnFist">握拳 / 1</button><button data-mode="1" data-i18n="btnOpen">张手 / 2</button><button data-mode="2" data-i18n="btnPinch">捏合 / 3</button><button data-mode="3" data-i18n="btnWave">挥动 / 4</button><button id="demo" data-i18n="btnDemo">自动演示 / R</button><button id="sound" data-i18n="btnSound">声音</button></div>
@@ -6,7 +12,7 @@
 'use strict';
 i18n.setDict({
 zh:{
-pageTitle:'掌中星河 · AI 编程作品',
+pageTitle:'掌中星河 · Alepha AI 编程作品',
 noticeAuto:'自动演示 · 手部骨架为示意；摄像头需点击授权。本地识别，不上传影像。',
 btnEnable:'开启真实手势',btnFist:'握拳 / 1',btnOpen:'张手 / 2',btnPinch:'捏合 / 3',btnWave:'挥动 / 4',btnDemo:'自动演示 / R',btnSound:'声音',
 noticeManual:'手动控制 · 按 R 返回自动演示',
@@ -14,7 +20,7 @@ noticeLoading:'正在加载手势模型…',
 noticeCamOn:'摄像头已开启 · 本地识别，不上传影像；无手时保持上个状态',
 noticeCamActive:'手势识别中',
 noticeCamFail:'摄像头/模型不可用，已回退自动演示。可用 1–4 或按钮控制。',
-brand:'C O D E   /   C O S M O S',
+brand:'A L E P H A',
 footer:'AI 编程作品  ·  程序动画演示',
 camOn:'实时手势 / 本地识别',camOff:'手势骨架示意 / 自动演示',
 soundOn:'原创合成音轨播放中',mp4Error:'当前浏览器不支持MP4导出',
@@ -22,7 +28,7 @@ tl:[['把星河，握在手里','捏住一颗星 · 张手即爆散','01 / 掌�
 prompt:'做一个能用手势控制的粒子星河',promptSub:'握拳聚拢 · 张手爆散 · 捏合成环',promptTitle:'PROMPT / 提示词摘录'
 },
 en:{
-pageTitle:'Palm Galaxy · AI Coding Art',
+pageTitle:'Palm Galaxy · Alepha AI Coding Art',
 noticeAuto:'Auto demo · Hand skeleton is illustrative; click to authorize camera. Local recognition, no image upload.',
 btnEnable:'Enable Gesture',btnFist:'Fist / 1',btnOpen:'Open / 2',btnPinch:'Pinch / 3',btnWave:'Wave / 4',btnDemo:'Auto Demo / R',btnSound:'Sound',
 noticeManual:'Manual control · Press R to return to auto demo',
@@ -30,7 +36,7 @@ noticeLoading:'Loading gesture model…',
 noticeCamOn:'Camera on · Local recognition, no upload; holds last state when no hand',
 noticeCamActive:'Recognizing',
 noticeCamFail:'Camera/model unavailable, fallback to auto demo. Use 1–4 or buttons.',
-brand:'C O D E   /   C O S M O S',
+brand:'A L E P H A',
 footer:'AI Coding Art  ·  Procedural Animation',
 camOn:'Live Gesture / Local',camOff:'Skeleton Demo / Auto',
 soundOn:'Original synth track playing',mp4Error:'Current browser does not support MP4 export',
@@ -81,7 +87,9 @@ function makeAudio(){const ac=new AudioContext(),dest=ac.createMediaStreamDestin
 document.querySelector('#sound').onclick=()=>{if(!audio){audio=makeAudio();document.querySelector('#sound').textContent=i18n.t('soundOn')}};
 window.recordFilm=async()=>{paused=false;manual=null;audio=makeAudio();await audio.ac.resume();const stream=film.captureStream(30);for(const track of audio.dest.stream.getAudioTracks())stream.addTrack(track);const mime='video/mp4;codecs=avc1.42001E,mp4a.40.2';if(!MediaRecorder.isTypeSupported(mime))throw Error(i18n.t('mp4Error'));let chunks=[];const rec=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:12000000,audioBitsPerSecond:192000});let done=new Promise(resolve=>rec.onstop=resolve);rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};start=performance.now();hold=0;renderAt(0,true);rec.start(1000);await new Promise(r=>setTimeout(r,30000));rec.stop();await done;let blob=new Blob(chunks,{type:'video/mp4'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='palm-galaxy-douyin.mp4';window.recordedBlob=blob;if(!window.automatedExport)a.click();await audio.ac.close();return {bytes:blob.size,mime:blob.type,stats:window.stats()}};
 if(new URLSearchParams(location.search).has('clean')){document.querySelector('#controls').style.display='none';document.querySelector('#notice').style.display='none'}requestAnimationFrame(animate);
-</script></html>
+</script>
+<script src="site.js"></script>
+</html>
 
 
 

@@ -1,19 +1,25 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title data-i18n="pageTitle">雨港2077</title>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="pageTitle">雨港2077 · Alepha AI 编程作品</title>
+<meta name="description" content="雨港2077 — Alepha AI 编程作品。雨夜的霓虹城市，灯光与倒影同步呼吸，点击唤醒整条街，让光沿着雨夜蔓延。">
+<meta name="keywords" content="雨港2077, Alepha, Canvas, 赛博朋克, 动画, AI编程, 代码艺术">
+<meta property="og:title" content="雨港2077 · Alepha AI 编程作品">
+<meta property="og:description" content="雨夜的霓虹城市，灯光与倒影同步呼吸 — Alepha AI 编程作品">
+<meta property="og:site_name" content="Alepha">
 <script src="i18n.js"></script>
 <style>html,body{margin:0;background:#03070d;height:100%;overflow:hidden}body{display:grid;place-items:center}canvas{width:auto;height:auto;max-width:100vw;max-height:100vh;display:block}.stage{position:relative;display:inline-block;line-height:0}.hint{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);pointer-events:none;color:#d6ece9;font-size:clamp(12px,1.7vw,18px);font-family:"Microsoft YaHei",sans-serif;letter-spacing:.1em;white-space:nowrap;padding:7px 16px;border-radius:999px;background:rgba(3,11,20,.42);backdrop-filter:blur(4px);text-shadow:0 1px 5px #000,0 0 10px rgba(94,214,203,.4);border:1px solid rgba(94,214,203,.22)}</style><div class="stage"><canvas width="1080" height="1920"></canvas><div class="hint" data-i18n="hint">点击唤醒城市  ·  空格暂停  ·  R 重播</div></div><script>
 i18n.setDict({
 zh:{
-pageTitle:'雨港2077',
+pageTitle:'雨港2077 · Alepha AI 编程作品',
 hint:'点击唤醒城市  ·  空格暂停  ·  R 重播',
-brand:'雨 港  /  2 0 7 7',
+brand:'A L E P H A',
 brandEn:'NEON AFTER RAIN',
 footer:'ORIGINAL CODE ART  /  雨夜视觉实验',
 tl:[['点一下，雨城醒了','LIGHT UP THE NIGHT'],['把雨夜，写进浏览器','一条街道 · 一场雨 · 一次唤醒'],['让城市有深度','远处是雾，近处是光'],['让霓虹落进水里','灯光与倒影，同步呼吸'],['雨港 2077','戴上耳机，停留片刻'],['准备，唤醒整条街','03  /  CITY AWAKENING'],['光，沿着雨夜蔓延','霓虹点亮 → 水面回应'],['把这场雨，留在桌面','收藏这座雨城']]
 },
 en:{
-pageTitle:'Rainy Harbor 2077',
+pageTitle:'Rainy Harbor 2077 · Alepha AI Coding Art',
 hint:'Click to wake the city  ·  Space to pause  ·  R to replay',
-brand:'R A I N Y   /   H A R B O R',
+brand:'A L E P H A',
 brandEn:'NEON AFTER RAIN',
 footer:'ORIGINAL CODE ART  /  Rainy Night Visual Experiment',
 tl:[['Click, the rainy city wakes','LIGHT UP THE NIGHT'],['Code the rainy night into the browser','One street · one rain · one awakening'],['Give the city depth','Distant fog, nearby light'],['Let neon fall into the water','Lights and reflections breathe together'],['Rainy Harbor 2077','Put on headphones, stay a while'],['Ready, wake the whole street','03  /  CITY AWAKENING'],['Light spreads through the rainy night','Neon lights up → water responds'],['Keep this rain on your desktop','Collect this rainy city']]
@@ -66,5 +72,7 @@ for(let freq of [55,82.4069,110,164.8138,220]){let o=ac.createOscillator(),v=ac.
 for(let t of [.4,24.2,24.7,25.1]){let o=ac.createOscillator(),v=ac.createGain();o.frequency.setValueAtTime(230,base+t);o.frequency.exponentialRampToValueAtTime(45,base+t+.7);v.gain.setValueAtTime(.001,base+t);v.gain.exponentialRampToValueAtTime(.12,base+t+.025);v.gain.exponentialRampToValueAtTime(.001,base+t+1.1);o.connect(v);v.connect(master);o.start(base+t);o.stop(base+t+1.2)}
 master.gain.setValueAtTime(.6,base+34);master.gain.linearRampToValueAtTime(0,base+35);return{ac,dest}}
 window.recordFilm=async()=>{playing=false;let {ac,dest}=soundtrack();await ac.resume();let stream=c.captureStream(30);dest.stream.getAudioTracks().forEach(t=>stream.addTrack(t));let mime='video/mp4;codecs=avc1.42001E,mp4a.40.2';if(!MediaRecorder.isTypeSupported(mime))mime='video/webm;codecs=vp8,opus';let rec=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:6500000,audioBitsPerSecond:160000}),chunks=[],count=0,begin=performance.now();rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};let done=new Promise(resolve=>rec.onstop=async()=>{await ac.close();let blob=new Blob(chunks,{type:mime.split(';')[0]}),a=document.createElement('a');window.recordedBlob=blob;resolve({bytes:blob.size,mime,frames:count,duration:(performance.now()-begin)/1000})});renderAt(0);rec.start();function frame(now){let t=(now-begin)/1000;if(t>=35){rec.stop();return}renderAt(t);count++;requestAnimationFrame(frame)}requestAnimationFrame(frame);return await done};
-</script></html>
+</script>
+<script src="site.js"></script>
+</html>
 

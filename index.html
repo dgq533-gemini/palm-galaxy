@@ -1,4 +1,16 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title data-i18n="pageTitle">CODE / COSMOS · AI 编程作品集</title>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title data-i18n="pageTitle">Alepha · AI 编程作品集</title>
+<meta name="description" content="Alepha — AI 编程作品集，用代码描绘星河与雨夜。掌中星河、雨港2077、以你之名的宇宙，每一件作品都是程序与想象的共振。">
+<meta name="keywords" content="Alepha, AI编程, 代码艺术, 粒子动画, WebGL, Canvas, 作品集, creative coding">
+<meta name="author" content="Alepha">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Alepha · AI 编程作品集">
+<meta property="og:description" content="用代码描绘星河与雨夜 — AI 编程作品集，每一件作品都是程序与想象的共振。">
+<meta property="og:site_name" content="Alepha">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alepha · AI 编程作品集">
+<meta name="twitter:description" content="用代码描绘星河与雨夜 — AI 编程作品集">
+<link rel="canonical" href="https://alepha.dpdns.org/">
 <script src="i18n.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -32,7 +44,7 @@ footer{margin-top:64px;text-align:center;color:#4a5e66;font-size:13px;letter-spa
 <div class="wrap">
   <header>
     <div class="kicker" data-i18n="kicker">AI Coding Art Collection</div>
-    <h1>CODE / COSMOS</h1>
+    <h1>Alepha</h1>
     <p class="subtitle" data-i18n="subtitle">用代码描绘星河与雨夜 — AI 编程作品集，每一件作品都是一次程序与想象的共振。</p>
     <div class="brand-line" data-i18n="brandLine">A I &nbsp; 编 程 作 品 集</div>
   </header>
@@ -86,19 +98,19 @@ function renderWorks(){
 }
 i18n.setDict({
   zh:{
-    pageTitle:'CODE / COSMOS · AI 编程作品集',
+    pageTitle:'Alepha · AI 编程作品集',
     kicker:'AI Coding Art Collection',
     subtitle:'用代码描绘星河与雨夜 — AI 编程作品集，每一件作品都是一次程序与想象的共振。',
-    brandLine:'A I  编 程 作 品 集',
-    footer:'© 2026 CODE / COSMOS · 所有作品均为 AI 辅助编程创作',
+    brandLine:'A L E P H A  ·  A I 编 程 作 品 集',
+    footer:'© 2026 Alepha · 所有作品均为 AI 辅助编程创作',
     enterWork:'进入作品'
   },
   en:{
-    pageTitle:'CODE / COSMOS · AI Coding Art Collection',
+    pageTitle:'Alepha · AI Coding Art Collection',
     kicker:'AI Coding Art Collection',
     subtitle:'Code-painted galaxies and rainy nights — an AI coding art collection where every work is a resonance between program and imagination.',
-    brandLine:'A I  C O D I N G  A R T',
-    footer:'© 2026 CODE / COSMOS · All works are AI-assisted coding creations',
+    brandLine:'A L E P H A  ·  AI CODING ART',
+    footer:'© 2026 Alepha · All works are AI-assisted coding creations',
     enterWork:'Enter Work'
   }
 });
@@ -111,3 +123,4 @@ function resize(){W=c.width=innerWidth;H=c.height=innerHeight;stars=Array.from({
 resize();addEventListener('resize',resize);
 (function draw(t){g.clearRect(0,0,W,H);for(let s of stars){let a=.25+.35*Math.sin(t*.001*s.s+s.p);g.globalAlpha=a;g.fillStyle='#c1e4e8';g.beginPath();g.arc(s.x,s.y,s.r,0,7);g.fill()}g.globalAlpha=1;requestAnimationFrame(draw)})(0);
 </script>
+<script src="site.js"></script>
