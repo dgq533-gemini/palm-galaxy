@@ -6,8 +6,8 @@
 (function(){
   const SITE_NAME='Alepha';
   const HOME_URL='index.html';
-  // 飞书公开表单链接 — 用户创建后替换
-  const FEISHU_FORM_URL=''; // 例: 'https://xxx.feishu.cn/share/base/form/xxxxxx'
+  // 飞书公开表单链接
+  const FEISHU_FORM_URL='https://rcnaobu96lrh.feishu.cn/share/base/form/shrcnsvTmYjbcASdzWjdda7PFJg';
 
   // 回主页按钮（首页不显示）
   if(!location.pathname.endsWith(HOME_URL)&&location.pathname!=='/'&&location.pathname!==''){
