@@ -1,4 +1,5 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CODE / COSMOS · AI 编程作品集</title>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title data-i18n="pageTitle">CODE / COSMOS · AI 编程作品集</title>
+<script src="i18n.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#060b12;color:#eef7f5;font:15px/1.6 'Microsoft YaHei',sans-serif;min-height:100vh;overflow-x:hidden}
@@ -30,56 +31,79 @@ footer{margin-top:64px;text-align:center;color:#4a5e66;font-size:13px;letter-spa
 <canvas id="stars"></canvas>
 <div class="wrap">
   <header>
-    <div class="kicker">AI Coding Art Collection</div>
+    <div class="kicker" data-i18n="kicker">AI Coding Art Collection</div>
     <h1>CODE / COSMOS</h1>
-    <p class="subtitle">用代码描绘星河与雨夜 — AI 编程作品集，每一件作品都是一次程序与想象的共振。</p>
-    <div class="brand-line">A I &nbsp; 编 程 作 品 集</div>
+    <p class="subtitle" data-i18n="subtitle">用代码描绘星河与雨夜 — AI 编程作品集，每一件作品都是一次程序与想象的共振。</p>
+    <div class="brand-line" data-i18n="brandLine">A I &nbsp; 编 程 作 品 集</div>
   </header>
   <div class="grid" id="grid"></div>
-  <footer>© 2026 CODE / COSMOS · 所有作品均为 AI 辅助编程创作</footer>
+  <footer data-i18n="footer">© 2026 CODE / COSMOS · 所有作品均为 AI 辅助编程创作</footer>
 </div>
 <script>
 'use strict';
-// 作品列表 — 新增作品只需在此添加一项
+// 作品列表 — 新增作品只需在此添加一项（title/desc/tags 均需中英文）
 const WORKS=[
   {
     num:'01',
-    title:'掌中星河',
-    en:'PALM GALAXY',
-    desc:'26,000 颗星，握在手里。握拳聚拢，张手爆散，捏合成环 — WebGL 粒子星河，支持手势控制。',
-    tags:['WebGL','粒子系统','手势识别','MediaPipe'],
+    title:{zh:'掌中星河',en:'Palm Galaxy'},
+    enSub:'PALM GALAXY',
+    desc:{zh:'26,000 颗星，握在手里。握拳聚拢，张手爆散，捏合成环 — WebGL 粒子星河，支持手势控制。',en:'26,000 stars in your palm. Fist to gather, open to burst, pinch to form a ring — WebGL particle galaxy with gesture control.'},
+    tags:{zh:['WebGL','粒子系统','手势识别','MediaPipe'],en:['WebGL','Particles','Gesture','MediaPipe']},
     url:'galaxy.html'
   },
   {
     num:'02',
-    title:'雨港 2077',
-    en:'NEON AFTER RAIN',
-    desc:'雨夜的霓虹城市，灯光与倒影同步呼吸。点击唤醒整条街，让光沿着雨夜蔓延。',
-    tags:['Canvas 2D','赛博朋克','动画','合成音轨'],
+    title:{zh:'雨港 2077',en:'Rainy Harbor 2077'},
+    enSub:'NEON AFTER RAIN',
+    desc:{zh:'雨夜的霓虹城市，灯光与倒影同步呼吸。点击唤醒整条街，让光沿着雨夜蔓延。',en:'A neon city in the rain, lights and reflections breathe together. Click to wake the whole street, let light spread through the rainy night.'},
+    tags:{zh:['Canvas 2D','赛博朋克','动画','合成音轨'],en:['Canvas 2D','Cyberpunk','Animation','Synth Track']},
     url:'yugang.html'
   },
   {
     num:'03',
-    title:'以你之名的宇宙',
-    en:'UNIVERSE OF YOU',
-    desc:'输入一个名字，生成专属的星空宇宙。粒子从心形聚成名字，再绽成星系 — 星星有很多，但我的宇宙里，只有你。',
-    tags:['Canvas 2D','粒子系统','名字生成','心形数学'],
+    title:{zh:'以你之名的宇宙',en:'Universe of You'},
+    enSub:'UNIVERSE OF YOU',
+    desc:{zh:'输入一个名字，生成专属的星空宇宙。粒子从心形聚成名字，再绽成星系 — 星星有很多，但我的宇宙里，只有你。',en:'Enter a name to generate a专属 starry universe. Particles gather from a heart into the name, then bloom into a galaxy — countless stars, but only you in my universe.'},
+    tags:{zh:['Canvas 2D','粒子系统','名字生成','心形数学'],en:['Canvas 2D','Particles','Name Gen','Heart Math']},
     url:'yinizhiming261021.html'
   }
 ];
 const grid=document.getElementById('grid');
-WORKS.forEach(w=>{
-  const a=document.createElement('a');
-  a.className='card';
-  a.href=w.url;
-  a.innerHTML=`<div class="card-num">${w.num} / ${String(WORKS.length).padStart(2,'0')}</div>
-    <div class="card-title">${w.title}</div>
-    <div class="card-en">${w.en}</div>
-    <div class="card-desc">${w.desc}</div>
-    <div class="tags">${w.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-    <div class="enter">进入作品 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>`;
-  grid.appendChild(a);
+function renderWorks(){
+  const L=i18n.lang;
+  grid.innerHTML='';
+  WORKS.forEach(w=>{
+    const a=document.createElement('a');
+    a.className='card';a.href=w.url;
+    a.innerHTML=`<div class="card-num">${w.num} / ${String(WORKS.length).padStart(2,'0')}</div>
+      <div class="card-title">${w.title[L]}</div>
+      <div class="card-en">${w.enSub}</div>
+      <div class="card-desc">${w.desc[L]}</div>
+      <div class="tags">${w.tags[L].map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      <div class="enter">${i18n.t('enterWork')} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>`;
+    grid.appendChild(a);
+  });
+}
+i18n.setDict({
+  zh:{
+    pageTitle:'CODE / COSMOS · AI 编程作品集',
+    kicker:'AI Coding Art Collection',
+    subtitle:'用代码描绘星河与雨夜 — AI 编程作品集，每一件作品都是一次程序与想象的共振。',
+    brandLine:'A I  编 程 作 品 集',
+    footer:'© 2026 CODE / COSMOS · 所有作品均为 AI 辅助编程创作',
+    enterWork:'进入作品'
+  },
+  en:{
+    pageTitle:'CODE / COSMOS · AI Coding Art Collection',
+    kicker:'AI Coding Art Collection',
+    subtitle:'Code-painted galaxies and rainy nights — an AI coding art collection where every work is a resonance between program and imagination.',
+    brandLine:'A I  C O D I N G  A R T',
+    footer:'© 2026 CODE / COSMOS · All works are AI-assisted coding creations',
+    enterWork:'Enter Work'
+  }
 });
+renderWorks();
+document.addEventListener('langchange',renderWorks);
 // 星空背景
 const c=document.getElementById('stars'),g=c.getContext('2d');
 let W,H,stars;

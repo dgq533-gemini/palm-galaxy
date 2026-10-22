@@ -1,4 +1,24 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>雨港2077</title><style>html,body{margin:0;background:#03070d;height:100%;overflow:hidden}body{display:grid;place-items:center}canvas{width:auto;height:auto;max-width:100vw;max-height:100vh;display:block}.stage{position:relative;display:inline-block;line-height:0}.hint{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);pointer-events:none;color:#d6ece9;font-size:clamp(12px,1.7vw,18px);font-family:"Microsoft YaHei",sans-serif;letter-spacing:.1em;white-space:nowrap;padding:7px 16px;border-radius:999px;background:rgba(3,11,20,.42);backdrop-filter:blur(4px);text-shadow:0 1px 5px #000,0 0 10px rgba(94,214,203,.4);border:1px solid rgba(94,214,203,.22)}</style><div class="stage"><canvas width="1080" height="1920"></canvas><div class="hint">点击唤醒城市  ·  空格暂停  ·  R 重播</div></div><script>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title data-i18n="pageTitle">雨港2077</title>
+<script src="i18n.js"></script>
+<style>html,body{margin:0;background:#03070d;height:100%;overflow:hidden}body{display:grid;place-items:center}canvas{width:auto;height:auto;max-width:100vw;max-height:100vh;display:block}.stage{position:relative;display:inline-block;line-height:0}.hint{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);pointer-events:none;color:#d6ece9;font-size:clamp(12px,1.7vw,18px);font-family:"Microsoft YaHei",sans-serif;letter-spacing:.1em;white-space:nowrap;padding:7px 16px;border-radius:999px;background:rgba(3,11,20,.42);backdrop-filter:blur(4px);text-shadow:0 1px 5px #000,0 0 10px rgba(94,214,203,.4);border:1px solid rgba(94,214,203,.22)}</style><div class="stage"><canvas width="1080" height="1920"></canvas><div class="hint" data-i18n="hint">点击唤醒城市  ·  空格暂停  ·  R 重播</div></div><script>
+i18n.setDict({
+zh:{
+pageTitle:'雨港2077',
+hint:'点击唤醒城市  ·  空格暂停  ·  R 重播',
+brand:'雨 港  /  2 0 7 7',
+brandEn:'NEON AFTER RAIN',
+footer:'ORIGINAL CODE ART  /  雨夜视觉实验',
+tl:[['点一下，雨城醒了','LIGHT UP THE NIGHT'],['把雨夜，写进浏览器','一条街道 · 一场雨 · 一次唤醒'],['让城市有深度','远处是雾，近处是光'],['让霓虹落进水里','灯光与倒影，同步呼吸'],['雨港 2077','戴上耳机，停留片刻'],['准备，唤醒整条街','03  /  CITY AWAKENING'],['光，沿着雨夜蔓延','霓虹点亮 → 水面回应'],['把这场雨，留在桌面','收藏这座雨城']]
+},
+en:{
+pageTitle:'Rainy Harbor 2077',
+hint:'Click to wake the city  ·  Space to pause  ·  R to replay',
+brand:'R A I N Y   /   H A R B O R',
+brandEn:'NEON AFTER RAIN',
+footer:'ORIGINAL CODE ART  /  Rainy Night Visual Experiment',
+tl:[['Click, the rainy city wakes','LIGHT UP THE NIGHT'],['Code the rainy night into the browser','One street · one rain · one awakening'],['Give the city depth','Distant fog, nearby light'],['Let neon fall into the water','Lights and reflections breathe together'],['Rainy Harbor 2077','Put on headphones, stay a while'],['Ready, wake the whole street','03  /  CITY AWAKENING'],['Light spreads through the rainy night','Neon lights up → water responds'],['Keep this rain on your desktop','Collect this rainy city']]
+}
+});
 const W=1080,H=1920,c=document.querySelector('canvas'),g=c.getContext('2d'),TAU=Math.PI*2;
 function fit(){let s=Math.min(innerWidth/W,innerHeight/H);c.style.width=W*s+'px';c.style.height=H*s+'px'}fit();addEventListener('resize',fit);addEventListener('orientationchange',fit);
 function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
@@ -35,9 +55,9 @@ for(let r of rain){let y=(r.y+t/35*H*r.v)%H,x=((r.x-y*.075+Math.sin(t/35*TAU)*12
 for(let r of rings){let age=(r.p+t/35*28)%1;g.beginPath();g.ellipse(r.x,r.y,r.r*age,3.2*age,0,0,TAU);g.strokeStyle='rgba(151,222,226,'+((1-age)*.2)+')';g.lineWidth=1;g.stroke()}
 g.save();g.translate(680,1154);g.scale(.74,.74);g.fillStyle='#02070c';g.beginPath();g.arc(0,-83,65,Math.PI,0);g.quadraticCurveTo(32,-93,0,-79);g.quadraticCurveTo(-30,-94,-65,-83);g.fill();line(g,0,-82,0,12,'#03080e',4);g.beginPath();g.ellipse(4,-37,12,15,0,0,TAU);g.fill();poly(g,[[-8,-24],[17,-23],[23,59],[-17,59]],'#03080d');line(g,-7,54,-12,101,'#02070b',10);line(g,12,54,18,101,'#02070b',10);line(g,-62,-84,61,-84,'#48a5a4');g.restore();g.restore();
 let v=g.createRadialGradient(540,940,400,540,940,1200);v.addColorStop(0,'transparent');v.addColorStop(1,'#000b');g.fillStyle=v;g.fillRect(0,0,W,H);
-text(g,'雨 港  /  2 0 7 7',84,225,29,'#c7e2df');line(g,84,249,224,249,'#5ed6cb',2);text(g,'NEON AFTER RAIN',84,286,17,'#a6c3c8');
-let title,sub;if(t<3){title='点一下，雨城醒了';sub='LIGHT UP THE NIGHT'}else if(t<7){title='把雨夜，写进浏览器';sub='一条街道 · 一场雨 · 一次唤醒'}else if(t<11){title='让城市有深度';sub='远处是雾，近处是光'}else if(t<15){title='让霓虹落进水里';sub='灯光与倒影，同步呼吸'}else if(t<21){title='雨港 2077';sub='戴上耳机，停留片刻'}else if(t<24){title='准备，唤醒整条街';sub='03  /  CITY AWAKENING'}else if(t<29){title='光，沿着雨夜蔓延';sub='霓虹点亮 → 水面回应'}else{title='把这场雨，留在桌面';sub='收藏这座雨城'}
-let plate=g.createLinearGradient(0,1380,0,1610);plate.addColorStop(0,'transparent');plate.addColorStop(.55,'#030b14c9');plate.addColorStop(1,'transparent');g.fillStyle=plate;g.fillRect(0,1380,W,230);g.save();g.shadowColor='#000';g.shadowBlur=12;text(g,title,540,1480,55,'#e6f8f3','center',600);text(g,sub,540,1541,25,'#b2cdd2','center',400);g.restore();text(g,'ORIGINAL CODE ART  /  雨夜视觉实验',84,1680,18,'#99b6bd');
+text(g,i18n.t('brand'),84,225,29,'#c7e2df');line(g,84,249,224,249,'#5ed6cb',2);text(g,i18n.t('brandEn'),84,286,17,'#a6c3c8');
+const tl=i18n.t('tl');let title,sub;if(t<3){[title,sub]=tl[0]}else if(t<7){[title,sub]=tl[1]}else if(t<11){[title,sub]=tl[2]}else if(t<15){[title,sub]=tl[3]}else if(t<21){[title,sub]=tl[4]}else if(t<24){[title,sub]=tl[5]}else if(t<29){[title,sub]=tl[6]}else{[title,sub]=tl[7]}
+let plate=g.createLinearGradient(0,1380,0,1610);plate.addColorStop(0,'transparent');plate.addColorStop(.55,'#030b14c9');plate.addColorStop(1,'transparent');g.fillStyle=plate;g.fillRect(0,1380,W,230);g.save();g.shadowColor='#000';g.shadowBlur=12;text(g,title,540,1480,55,'#e6f8f3','center',600);text(g,sub,540,1541,25,'#b2cdd2','center',400);g.restore();text(g,i18n.t('footer'),84,1680,18,'#99b6bd');
 }
 window.renderAt=renderAt;let playing=true,start=performance.now(),paused=false,time=0;function loop(now){if(playing){if(!paused)time=(now-start)/1000;renderAt(time);requestAnimationFrame(loop)}}requestAnimationFrame(loop);window.stopAnimation=()=>playing=false;
 c.onclick=()=>{start=performance.now()-24000;time=24};document.onkeydown=e=>{if(e.code==='Space'){e.preventDefault();paused=!paused;start=performance.now()-time*1000}if(e.key.toLowerCase()==='r'){start=performance.now();time=0}};
