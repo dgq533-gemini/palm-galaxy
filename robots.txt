@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alepha.dpdns.org/sitemap.xml
