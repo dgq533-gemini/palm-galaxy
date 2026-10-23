@@ -8,6 +8,8 @@
   const HOME_URL='index.html';
   // 飞书公开表单链接
   const FEISHU_FORM_URL='https://rcnaobu96lrh.feishu.cn/share/base/form/shrcnsvTmYjbcASdzWjdda7PFJg';
+  // 爱发电主页链接
+  const AFD_URL='https://afdian.net/a/alepha';
 
   // 回主页按钮（首页不显示）
   if(!location.pathname.endsWith(HOME_URL)&&location.pathname!=='/'&&location.pathname!==''){
@@ -38,6 +40,24 @@
   }
   applyFbI18n();
   if(window.i18n)document.addEventListener('langchange',applyFbI18n);
+
+  // 爱发电支持按钮 — 左下角
+  const afdBtn=document.createElement('a');
+  afdBtn.href=AFD_URL;
+  afdBtn.target='_blank';
+  afdBtn.rel='noopener noreferrer';
+  afdBtn.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg><span data-afd-i18n="afdBtn">支持</span>';
+  afdBtn.style.cssText='position:fixed;bottom:16px;left:16px;z-index:99998;display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#946bff,#7c5cff);color:#fff;border:none;border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(148,107,255,.35);transition:all .2s;font-family:"Microsoft YaHei",sans-serif;text-decoration:none';
+  afdBtn.onmouseenter=()=>{afdBtn.style.transform='translateY(-2px)';afdBtn.style.boxShadow='0 6px 24px rgba(148,107,255,.5)'};
+  afdBtn.onmouseleave=()=>{afdBtn.style.transform='';afdBtn.style.boxShadow='0 4px 16px rgba(148,107,255,.35)'};
+  document.body.appendChild(afdBtn);
+
+  function applyAfdI18n(){
+    const L=(window.i18n&&i18n.lang)||(navigator.language.startsWith('zh')?'zh':'en');
+    afdBtn.querySelector('span').textContent=L==='zh'?'支持':'Support';
+  }
+  applyAfdI18n();
+  if(window.i18n)document.addEventListener('langchange',applyAfdI18n);
 
   // 点击反馈按钮：跳转飞书公开表单（新窗口）
   fbBtn.addEventListener('click',function(e){

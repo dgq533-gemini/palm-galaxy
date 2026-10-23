@@ -39,6 +39,10 @@ h1{font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:.04em;backgroun
 .enter svg{width:16px;height:16px;transition:transform .3s}
 .card:hover .enter svg{transform:translateX(4px)}
 footer{margin-top:64px;text-align:center;color:#4a5e66;font-size:13px;letter-spacing:.1em}
+.support{margin-top:56px;text-align:center}
+.support-text{color:#7a9099;font-size:14px;margin-bottom:16px}
+.support-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:linear-gradient(120deg,#946bff,#7c5cff);color:#fff;border-radius:999px;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.05em;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(148,107,255,.3)}
+.support-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(148,107,255,.45)}
 @media(max-width:640px){.grid{grid-template-columns:1fr}.card{padding:24px}}
 </style>
 <canvas id="stars"></canvas>
@@ -50,6 +54,13 @@ footer{margin-top:64px;text-align:center;color:#4a5e66;font-size:13px;letter-spa
     <div class="brand-line" data-i18n="brandLine">A I &nbsp; 编 程 作 品 集</div>
   </header>
   <div class="grid" id="grid"></div>
+  <div class="support">
+    <p class="support-text" data-i18n="supportText">如果你喜欢这些作品，欢迎在爱发电支持我 ☕</p>
+    <a class="support-btn" href="https://afdian.net/a/alepha" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      <span data-i18n="supportBtn">爱发电支持</span>
+    </a>
+  </div>
   <footer data-i18n="footer">© 2026 CODE / COSMOS · 所有作品均为 AI 辅助编程创作</footer>
 </div>
 <script>
@@ -104,7 +115,9 @@ i18n.setDict({
     subtitle:'用代码描绘星河与雨夜 — AI 编程作品集，每一件作品都是一次程序与想象的共振。',
     brandLine:'A L E P H A  ·  A I 编 程 作 品 集',
     footer:'© 2026 Alepha · 所有作品均为 AI 辅助编程创作',
-    enterWork:'进入作品'
+    enterWork:'进入作品',
+    supportText:'如果你喜欢这些作品，欢迎在爱发电支持我 ☕',
+    supportBtn:'爱发电支持'
   },
   en:{
     pageTitle:'Alepha · AI Coding Art Collection',
@@ -112,7 +125,9 @@ i18n.setDict({
     subtitle:'Code-painted galaxies and rainy nights — an AI coding art collection where every work is a resonance between program and imagination.',
     brandLine:'A L E P H A  ·  AI CODING ART',
     footer:'© 2026 Alepha · All works are AI-assisted coding creations',
-    enterWork:'Enter Work'
+    enterWork:'Enter Work',
+    supportText:'If you enjoy these works, consider supporting me on Afdian ☕',
+    supportBtn:'Support on Afdian'
   }
 });
 renderWorks();
