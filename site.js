@@ -9,7 +9,7 @@
   // 飞书公开表单链接
   const FEISHU_FORM_URL='https://rcnaobu96lrh.feishu.cn/share/base/form/shrcnsvTmYjbcASdzWjdda7PFJg';
   // 爱发电主页链接
-  const AFD_URL='https://afdian.net/a/alepha';
+  const AFD_URL='https://afdian.com/a/alepha';
 
   // 回主页按钮（首页不显示）
   if(!location.pathname.endsWith(HOME_URL)&&location.pathname!=='/'&&location.pathname!==''){
